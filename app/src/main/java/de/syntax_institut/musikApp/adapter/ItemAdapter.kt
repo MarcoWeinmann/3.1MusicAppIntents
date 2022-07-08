@@ -29,6 +29,7 @@ class ItemAdapter(
         val textViewTitle: TextView = itemView.findViewById(R.id.tv_songTitle)
         val imageViewCover: ImageView = itemView.findViewById(R.id.iv_songCover)
         val textViewLength: TextView = itemView.findViewById(R.id.tv_songLength)
+        val cardView: CardView = itemView.findViewById(R.id.item_cardView)
 
         // Verweis auf die CardView, damit die gesamte View klickbar ist
         // TODO Schreibe hier deinen Code
@@ -61,6 +62,8 @@ class ItemAdapter(
         val cover = holder.imageViewCover
         // TODO Schreibe hier deinen Code
 
+
+
         // Setze Attribute
         title.text = context.resources.getString(song.stringResource)
         cover.setImageResource(song.imageResource)
@@ -68,8 +71,15 @@ class ItemAdapter(
 
         // setze einen onClickListener für die CardView
         // TODO Schreibe hier deinen Code
-    }
 
+
+    holder.cardView.setOnClickListener{
+        val intent = Intent(context, DetailActivity::class.java)
+        intent.putExtra("imageId", song.imageResource)
+        intent.putExtra("stringId", song.stringResource) //title.text
+        context.startActivity(intent)
+    }
+    }
     /**
      * damit der LayoutManager weiß, wie lang die Liste ist
      */
