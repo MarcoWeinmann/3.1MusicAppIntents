@@ -73,7 +73,10 @@ class ItemAdapter(
         // TODO Schreibe hier deinen Code
 
 
+
     holder.cardView.setOnClickListener{
+
+
         val intent = Intent(context, DetailActivity::class.java)
         intent.putExtra("imageId", song.imageResource)
         intent.putExtra("stringId", song.stringResource) //title.text
